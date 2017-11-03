@@ -155,8 +155,9 @@ void BST<T>::Insert(T val) {
 	if (root == nullptr) {
 		root = new Nodo<T>(val);
 	}
-
-	InsertRec(root, val);
+	else {
+		InsertRec(root, val);
+	}
 }
 
 template <class T>
