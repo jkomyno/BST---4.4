@@ -6,11 +6,12 @@ using std::endl;
 
 template <class T> class BST;
 
-template <class T> ostream& operator<< (ostream&, const BST<T>&);
+template <class T>
+ostream& operator<<(ostream&, const BST<T>&);
 
 template <class T>
 class BST {
-	friend ostream& operator<< (ostream&, const BST<T>&);
+	friend ostream& operator<<<T>(ostream&, const BST<T>&);
 public:
 	BST() :
 		root(nullptr) {}
@@ -134,7 +135,7 @@ void BST<T>::InsertRec(Node<T>* r, T val) {
 
 	if (val < r->info) {
 		if (r->left == nullptr) {
-			r->left = new Nodo<T>(val, r);
+			r->left = new Node<T>(val, r);
 		}
 		else {
 			InsertRec(r->left, val);
@@ -142,7 +143,7 @@ void BST<T>::InsertRec(Node<T>* r, T val) {
 	}
 	else {
 		if (r->right == nullptr) {
-			r->right = new Nodo<T>(val, r);
+			r->right = new Node<T>(val, r);
 		}
 		else {
 			InsertRec(r->right, val);
@@ -153,7 +154,7 @@ void BST<T>::InsertRec(Node<T>* r, T val) {
 template <class T>
 void BST<T>::Insert(T val) {
 	if (root == nullptr) {
-		root = new Nodo<T>(val);
+		root = new Node<T>(val);
 	}
 	else {
 		InsertRec(root, val);
@@ -161,7 +162,7 @@ void BST<T>::Insert(T val) {
 }
 
 template <class T>
-ostream& operator<< (ostream& os, const BST<T>& t) {
+ostream& operator<<(ostream& os, const BST<T>& t) {
 	os << t.root << endl; // calls Node's operator<<
 	return os;
 }

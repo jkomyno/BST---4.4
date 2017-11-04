@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "Node.h"
 #include "BST.h"
 using namespace std;
@@ -14,4 +15,6 @@ int main() {
 	a.Insert(5);
 
 	cout << a << endl;
+
+	getchar();
 }

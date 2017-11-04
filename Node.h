@@ -1,15 +1,20 @@
 #pragma once
 #include <iostream>
-using std::ostream;
+// using std::ostream;
+
+using namespace std;
+
+template <class T> class BST;
 
 template <class T> class Node;
 
-template<class T> ostream& operator<< (ostream&, Node<T>*);
+template<class T>
+ostream& operator<<(ostream&, Node<T>*);
 
 template <class T>
 class Node {
 	friend class BST<T>; // associated friend class
-	friend ostream& operator<< (ostream&, Node<T>*);
+	friend ostream& operator<<<T>(ostream&, Node<T>*);
 
 private:
 	T info;
@@ -23,7 +28,7 @@ private:
 
 template <class T>
 ostream & operator<< (ostream& os, Node<T>* n) {
-	if (p == nullptr) {
+	if (n == nullptr) {
 		os << '@';
 	}
 	else {
